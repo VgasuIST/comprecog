@@ -1,0 +1,7 @@
+circle = круг
+ellipse = эллипс
+square = квадрат
+rectangle = прямоугольник
+pentagon = пятиугольник
+polygon = многоугольник
+triangle = треугольник
