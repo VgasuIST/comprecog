@@ -54,7 +54,7 @@ class ContourRecognizer(Recognizer):
 
             # иначе мы распознаём фигуру как круг
         else:
-            shape = "circle/polygon"
+            shape = "circle"
 
         return shape
 
