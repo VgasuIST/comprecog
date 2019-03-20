@@ -25,7 +25,8 @@ class ContourRecognizer(Recognizer):
     @staticmethod
     def contour2shape(c):
         """
-            Преобразуем контур в DetectedObject
+            Обнаруживаем фигуру по её контуру
+            :return имя фигуры
         """
 
         # аппроксимируем (сглаживаем) контур
@@ -85,7 +86,7 @@ class ContourRecognizer(Recognizer):
         # цикл по контурам
         for c in contours:
             shape = self.contour2shape(c)
-            x, y, w, h = cv.boundingRect(c)
+            x, y, w, h = cv.boundingRect(c)  # получаем ограничительную рамку
 
             detection = DetectedObject(shape, x/image_w, y/image_h, (x+w)/image_w, (y+h)/image_h)
             detections.append(detection)

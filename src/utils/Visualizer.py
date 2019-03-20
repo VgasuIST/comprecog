@@ -2,6 +2,7 @@ import cv2 as cv
 from PIL import ImageFont, ImageDraw, Image
 import numpy as np
 
+import cvui as ui
 
 class Visualizer:
     """
@@ -10,15 +11,20 @@ class Visualizer:
         XXX: Для русских символов пришлось использовать библиотеку Pillow (форк PIL)
     """
 
-    font = None
     name_table = None
+    """ таблица с локализированными именами объектов """
+
+    font = None
+    """ шрифт для рисования имен объектов """
 
     def __init__(self, name_table):
-        font_path = 'resources/fonts/consolas.ttf'
-        self.font = ImageFont.truetype(font_path, 20)
         self.name_table = name_table
 
-    def show(self, img, detections):
+        # загружаем шрифт для рисования
+        font_path = 'resources/fonts/consolas.ttf'
+        self.font = ImageFont.truetype(font_path, 20)
+
+    def show(self, img, detections, results):
         for detection in detections:
             # получаем координаты ограничительной рамки
             point1, point2 = detection.denormalized_points(img)

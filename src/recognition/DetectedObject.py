@@ -29,8 +29,8 @@ class DetectedObject:
     def denormalized_points(self, image):
         """
             Возвращает денормализованные координаты ограничительной рамки на изображении
-            :param image:
-            :return:
+            :param image: изображение
+            :return: координаты двух точек (x,y)
         """
 
         image_w = image.shape[1]
