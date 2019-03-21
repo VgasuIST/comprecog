@@ -1,6 +1,6 @@
 import cv2 as cv
 
-from recognition.Recognizer import Recognizer
+from recognition.ImageRecognizer import Recognizer
 from recognition.DetectedObject import DetectedObject
 
 

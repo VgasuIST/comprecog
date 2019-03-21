@@ -2,8 +2,6 @@ import cv2 as cv
 from PIL import ImageFont, ImageDraw, Image
 import numpy as np
 
-import cvui as ui
-
 class Visualizer:
     """
         Визуализирует результат на экране. Обводит рамки обнаруженных объектов
@@ -25,6 +23,7 @@ class Visualizer:
         self.font = ImageFont.truetype(font_path, 20)
 
     def show(self, img, detections, results):
+
         for detection in detections:
             # получаем координаты ограничительной рамки
             point1, point2 = detection.denormalized_points(img)

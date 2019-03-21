@@ -1,14 +1,18 @@
-from utils.Debug import Debug
+from utils.Utils import Utils
 
-from recognition.ContourRecognizer import ContourRecognizer
+from recognition.ContourImageRecognizer import ContourRecognizer
 from utils.Visualizer import Visualizer
 from utils.ObjectNameTable import ObjectNameTable
 
 from processing.CompositionProcessor import CompositionProcessor
 
 
+from ComprecogApplication import ComprecogApplication
+import wx
+
 def __main__():
-    Debug.print_startup_debug_info()
+    # выводим отладочную информацию в консоль
+    Utils.print_startup_debug_info()
 
     name_table = ObjectNameTable('resources/localized_names.txt')
     vis = Visualizer(name_table)
