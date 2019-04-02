@@ -1,10 +1,10 @@
 import cv2 as cv
 
-from recognition.ImageRecognizer import Recognizer
+from recognition.ImageRecognizer import ImageRecognizer
 from recognition.DetectedObject import DetectedObject
 
 
-class ContourRecognizer(Recognizer):
+class ContourImageRecognizer(ImageRecognizer):
     """ Обнаружение обьектов при помощи контуров
 
            Данный класс читает изображение и находит
@@ -59,8 +59,7 @@ class ContourRecognizer(Recognizer):
 
         return shape
 
-    def process_file(self, file_name):
-        image = cv.imread(file_name)
+    def process_image(self, image):
         # если не получилось прочитать файл, выбрасываем исключение
         if image is None:
             raise IOError('imread() failed')
@@ -91,4 +90,4 @@ class ContourRecognizer(Recognizer):
             detection = DetectedObject(shape, x/image_w, y/image_h, (x+w)/image_w, (y+h)/image_h)
             detections.append(detection)
 
-        return image, detections
+        return detections
